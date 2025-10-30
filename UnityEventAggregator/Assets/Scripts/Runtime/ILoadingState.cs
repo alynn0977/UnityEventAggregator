@@ -7,5 +7,4 @@ public interface ILoadingState
     float Progress { get; set; }
     string Message { get; set; }
     DateTime Timestamp { get; }
-    LoadingCategory Categories { get; set; }
 }

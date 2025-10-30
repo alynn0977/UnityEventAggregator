@@ -9,8 +9,6 @@ public class LoadingState : ILoadingState, INotifyPropertyChanged
     private float _progress = 0f;
     private string _message = string.Empty;
     private DateTime _timestamp;
-    private LoadingCategory _categories;
-
     public event PropertyChangedEventHandler PropertyChanged;
 
     public string Id => _id;
@@ -60,27 +58,11 @@ public class LoadingState : ILoadingState, INotifyPropertyChanged
         }
     }
 
-    public LoadingCategory Categories
-    {
-        get => _categories;
-        set
-        {
-            if (_categories != value)
-            {
-                _categories = value;
-                _timestamp = DateTime.UtcNow;
-                OnPropertyChanged();
-                OnPropertyChanged(nameof(Timestamp));
-            }
-        }
-    }
-
     public DateTime Timestamp => _timestamp;
 
-    public LoadingState(string id, LoadingCategory categories = LoadingCategory.None)
+    public LoadingState(string id)
     {
         _id = id;
-        _categories = categories;
         _timestamp = DateTime.UtcNow;
     }
 

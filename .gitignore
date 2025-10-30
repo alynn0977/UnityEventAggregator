@@ -97,3 +97,11 @@ InitTestScene*.unity*
 
 # Auto-generated scenes by play mode tests
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
+/UnityEventAggregator/Library
+/UnityEventAggregator/ProjectSettings
+UnityEventAggregator/Packages/packages-lock.json
+/UnityEventAggregator/Temp
+/UnityEventAggregator/UserSettings
+/UnityEventAggregator/obj
+/UnityEventAggregator/.vscode
+UnityEventAggregator/.vsconfig
