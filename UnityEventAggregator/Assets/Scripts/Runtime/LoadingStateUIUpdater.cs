@@ -86,15 +86,15 @@ public class LoadingStateUIUpdater : MonoBehaviour
             Debug.Log($"[LoadingStateUIUpdater] State stored - Phase: {state.Phase.DisplayName}, Progress: {state.Progress:P0}, Message: {state.Message}");
         }
 
-        // Automatically update all UI elements immediately when state changes
-        // This ensures UI is always in sync, regardless of UnityEvent call order
-        UpdateAllUIInternal();
+        // Automatically update all UI elements immediately when state changes to sync things.
+        SyncUIInternal();
     }
 
     /// <summary>
-    /// Internal method to update all UI - called automatically when state changes
+    /// Internal method to update all UI - called automatically when state changes.
+    /// Required in order to prevent race conditions with UnityEvent call orders to UI.
     /// </summary>
-    private void UpdateAllUIInternal()
+    private void SyncUIInternal()
     {
         if (_currentState == null) return;
 

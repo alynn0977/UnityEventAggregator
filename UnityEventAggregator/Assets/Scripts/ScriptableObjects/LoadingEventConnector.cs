@@ -1,10 +1,7 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "LoadingEventAggregator", menuName = "Loading System/Loading Connector")]
+[CreateAssetMenu(fileName = "Loading Connector", menuName = "Loading System/Loading Connector")]
 public class LoadingConnector : ScriptableObject
 {
     [Header("Configuration")]
@@ -60,14 +57,5 @@ public class LoadingConnector : ScriptableObject
 
         // Broadcast to all subscribers
         OnStateChanged?.Invoke(loadingState);
-    }
-    
-    private bool IsSuccess(LoadingPhase phase)
-    {
-        var phaseId = phase.Id.ToLower();
-        return phaseId.Contains("complete") || 
-               phaseId.Contains("success") || 
-               phaseId.Contains("done") ||
-               phaseId.Contains("finished");
     }
 }
